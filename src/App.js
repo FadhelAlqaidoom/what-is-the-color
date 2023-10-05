@@ -10,30 +10,31 @@ function getRandomHexColor() {
   return color;
 }
 
-function App() {
-  const initialColors = [
+function generateRandomColors() {
+  return [
     getRandomHexColor(),
     getRandomHexColor(),
     getRandomHexColor(),
   ];
+}
+
+function App() {
+  const initialColors = generateRandomColors();
   const [colors, setColors] = useState(initialColors);
   const [color, setColor] = useState(
     initialColors[Math.floor(Math.random() * initialColors.length)]
   );
   const [isCorrectGuess, setIsCorrectGuess] = useState();
 
-  const handleOnClick = (clicked) => {
-    if (clicked === color) setIsCorrectGuess(true);
-    else setIsCorrectGuess(false);
-    const randomColors = [
-      getRandomHexColor(),
-      getRandomHexColor(),
-      getRandomHexColor(),
-    ];
-    const randomColor =
-      randomColors[Math.floor(Math.random() * randomColors.length)];
-    setColors(randomColors);
-    setColor(randomColor);
+  const handleOnClick = (clickedColor) => {
+    const isCorrect = clickedColor === color;
+    const newColors = generateRandomColors();
+    const newColor =
+      newColors[Math.floor(Math.random() * newColors.length)];
+
+    setIsCorrectGuess(isCorrect);
+    setColors(newColors);
+    setColor(newColor);
   };
   return (
     <div className="App App-header">
