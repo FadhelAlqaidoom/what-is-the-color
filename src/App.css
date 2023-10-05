@@ -13,6 +13,16 @@
   }
 }
 
+.div {
+  height: 250px;
+  width: 400px;
+}
+
+.button {
+  height: 30px;
+  width: 133px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,6 +32,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.row {
+  flex-direction: row;
 }
 
 .App-link {
